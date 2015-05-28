@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>DRF Boilerplate</title>
+        <meta charset="UTF-8">
+
+        <!-- JQuery -->
+        <script src="{% static 'jsframework/lib/bower_components/jquery/dist/jquery.min.js' %}"></script>
+        <!-- Twitter Bootstrap -->
+        <script src="{% static 'jsframework/lib/bower_components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'jsframework/lib/bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'jsframework/lib/bower_components/bootstrap/dist/css/bootstrap-theme.min.css' %}">
+        <!-- custom -->
+        <script src="{% static 'jsframework/js/main.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'jsframework/css/main.css' %}">
+    </head>
+    <body>
+        {% block content %}
+
+        {% endblock %}
+    </body> 
+</html>
