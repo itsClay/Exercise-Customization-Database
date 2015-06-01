@@ -1,2 +1,2 @@
-# django-drf-jquerymobile-starter-projec
-a boiler plate setup for quickly spinning up projects with django, drf, and jquerymobile
+# django-drf-angular-starter-project
+A boiler plate setup for quickly spinning up projects with Django, DRF, and Angular
