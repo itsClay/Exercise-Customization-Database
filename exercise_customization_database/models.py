@@ -6,13 +6,15 @@ from django.contrib.auth.models import user
 # Create your models here.
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User)
+    user = models.ForeignKey(User)
+    workout_name = ForeignKey('Workout')
 
      def __unicode__(self):
         return self.UserProfile
 
 class Workout(models.Model):
-	name = models.CharField(max_length=75)
+	workout_name = models.CharField(max_length=75)
+	exercises = ManyToManyField('Exercise')
 
 	def __unicode__(self):
         return self.Workout
@@ -27,12 +29,13 @@ class Exercise(models.Model):
 	other_muscles = models.CharField(max_length=75, blank=True, default='', null=True)
 	exercise_type = models.CharField(max_length=20, null=True)
 	rating = models.SmallIntegerField(null=True)
+	guide = models.TextFeild(null=True)
 
 	def __unicode__(self):
 	   return self.Exercise
 
 class Rating(models.Model):
-	rating = models.OneToManyField(null=True)
+	rating = models.ForeignKey('Exercise', null=True)
 
 	def __unicode__(self):
 	   return self.Rating
