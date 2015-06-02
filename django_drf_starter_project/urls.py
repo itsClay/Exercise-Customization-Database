@@ -8,7 +8,7 @@ urlpatterns = [
     # url(r'^$', 'django_drf_starter_project.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^exercise/', include(exercise_customization_database.urls))
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include(js_urls)),
-    url(r'^exercise/', include(exercise_customization_database.urls))
 ]
