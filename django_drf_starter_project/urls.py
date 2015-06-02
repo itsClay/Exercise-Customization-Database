@@ -10,4 +10,5 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include(js_urls)),
+    url(r'^exercise/', include(exercise_customization_database.urls))
 ]
