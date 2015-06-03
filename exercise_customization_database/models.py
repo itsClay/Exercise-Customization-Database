@@ -1,25 +1,25 @@
 from django.db import models
 from pygments.lexers import get_all_lexers
 from pygments.styles import get_all_styles
-from django.contrib.auth.models import user
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class UserProfile(models.Model):
-    user = models.ForeignKey(User)
-    workout_name = ForeignKey('Workout')
+	user = models.OneToOneField(User)
 
-     def __unicode__(self):
-        return self.UserProfile
+	def __unicode__(self):
+		return self.user
 
 class Workout(models.Model):
 	workout_name = models.CharField(max_length=75)
-	exercises = ManyToManyField('Exercise')
+	user = models.ForeignKey('UserProfile')
+	exercises = models.ManyToManyField('Exercise')
 
 	def __unicode__(self):
-        return self.Workout
+		return self.workout_name
 
-class Exercise(models.Model):
+class Exercise (models.Model):
 	name = models.CharField(max_length=75, blank=True, default='')
 	equipment = models.CharField(max_length=75, blank=True, default='', null=True)
 	force = models.CharField(max_length=20, blank=True, default='', null=True)
@@ -28,14 +28,14 @@ class Exercise(models.Model):
 	mechanics_type = models.CharField(max_length=75, blank=True, default='', null=True)
 	other_muscles = models.CharField(max_length=75, blank=True, default='', null=True)
 	exercise_type = models.CharField(max_length=20, null=True)
-	rating = models.SmallIntegerField(null=True)
-	guide = models.TextFeild(null=True)
+	guide = models.TextField(null=True)
 
 	def __unicode__(self):
-	   return self.Exercise
+	   return self.name
 
 class Rating(models.Model):
-	rating = models.ForeignKey('Exercise', null=True)
+	rating = models.SmallIntegerField(default='10')
+	exercise = models.ForeignKey('Exercise', null=True)
 
-	def __unicode__(self):
-	   return self.Rating
+	def __str__(self):
+	   return '{}'.format(self.rating)
