@@ -9,7 +9,7 @@ class UserProfile(models.Model):
 	user = models.OneToOneField(User)
 
 	def __unicode__(self):
-		return self.user
+		return '{}'.format(self.user.username)
 
 class Workout(models.Model):
 	workout_name = models.CharField(max_length=75)
@@ -17,7 +17,7 @@ class Workout(models.Model):
 	exercises = models.ManyToManyField('Exercise')
 
 	def __unicode__(self):
-		return self.workout_name
+		return '{}'.format(self.workout_name)
 
 class Exercise (models.Model):
 	name = models.CharField(max_length=75, blank=True, default='')
@@ -31,7 +31,7 @@ class Exercise (models.Model):
 	guide = models.TextField(null=True)
 
 	def __unicode__(self):
-	   return self.name
+	   return '{}'.format(self.name)
 
 class Rating(models.Model):
 	rating = models.SmallIntegerField(default='10')

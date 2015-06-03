@@ -1,5 +1,5 @@
 from django.shortcuts import render
 
 # Create your views here.
-def exercise(request):
-	return render(request, exercises.html)
+def workouts(request):
+	return render(request, 'workouts.html')
