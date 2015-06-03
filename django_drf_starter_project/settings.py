@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'exercise_customization_database',
     'jsframework',
+    'rest_framework',
 )
 
 MIDDLEWARE_CLASSES = (

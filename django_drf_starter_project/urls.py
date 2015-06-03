@@ -10,5 +10,6 @@ urlpatterns = [
 
     url(r'^exercise/', include('exercise_customization_database.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^api/', include('exercise_customization_database.api.urls')),
     url(r'', include(js_urls)),
 ]
