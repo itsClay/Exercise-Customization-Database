@@ -20,15 +20,16 @@ class Workout(models.Model):
 		return '{}'.format(self.workout_name)
 
 class Exercise (models.Model):
-	name = models.CharField(max_length=75, blank=True, default='')
+	name = models.CharField(max_length=100, blank=True, default='', unique=True)
 	equipment = models.CharField(max_length=75, blank=True, default='', null=True)
-	force = models.CharField(max_length=20, blank=True, default='', null=True)
+	force = models.CharField(max_length=100, blank=True, default='', null=True)
 	level = models.CharField(max_length=75, blank=True, default='', null=True)
 	main_muscle_worked = models.CharField(max_length=75, blank=True, default='', null=True)
 	mechanics_type = models.CharField(max_length=75, blank=True, default='', null=True)
-	other_muscles = models.CharField(max_length=75, blank=True, default='', null=True)
-	exercise_type = models.CharField(max_length=20, default='', null=True)
+	other_muscles = models.CharField(max_length=175, blank=True, default='', null=True)
+	exercise_type = models.CharField(max_length=100, default='', null=True)
 	guide = models.TextField(default='', null=True)
+	defaultRating = models.CharField(max_length=3, null=True)
 
 	def __unicode__(self):
 	   return '{}'.format(self.name)
