@@ -27,8 +27,8 @@ class Exercise (models.Model):
 	main_muscle_worked = models.CharField(max_length=75, blank=True, default='', null=True)
 	mechanics_type = models.CharField(max_length=75, blank=True, default='', null=True)
 	other_muscles = models.CharField(max_length=75, blank=True, default='', null=True)
-	exercise_type = models.CharField(max_length=20, null=True)
-	guide = models.TextField(null=True)
+	exercise_type = models.CharField(max_length=20, default='', null=True)
+	guide = models.TextField(default='', null=True)
 
 	def __unicode__(self):
 	   return '{}'.format(self.name)

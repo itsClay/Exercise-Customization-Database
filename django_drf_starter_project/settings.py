@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'exercise_customization_database',
     'jsframework',
     'rest_framework',
+    'management',
 )
 
 MIDDLEWARE_CLASSES = (

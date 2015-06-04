@@ -1,6 +1,6 @@
 from django.conf.urls import include, url
-from exercise_customization_database.api.views.workout_view import WorkoutView
+from exercise_customization_database.api.views.exercise_view import ExerciseView
 
 urlpatterns = [
-	url(r'^workouts/', WorkoutView.as_view()) 
+	url(r'^exercises/', ExerciseView.as_view()) 
 ]

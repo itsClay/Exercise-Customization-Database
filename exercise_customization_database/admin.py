@@ -6,3 +6,4 @@ admin.site.register(UserProfile)
 admin.site.register(Workout)
 admin.site.register(Exercise)
 admin.site.register(Rating)
+
