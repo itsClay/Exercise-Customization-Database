@@ -35,7 +35,7 @@ class Exercise (models.Model):
 	   return '{}'.format(self.name)
 
 class Rating(models.Model):
-	rating = models.SmallIntegerField(default='10')
+	rating = models.SmallIntegerField(default='')
 	exercise = models.ForeignKey('Exercise', null=True)
 
 	def __str__(self):
