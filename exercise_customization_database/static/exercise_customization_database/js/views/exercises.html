@@ -1,9 +1,20 @@
-<h1> Hello, World </h1>
+<div class="panel panel-default">
+	<div class="panel-heading">Exercises</div>
+</div>
 
-<div ng-controller="exercisesController">
-	{{ }}
-	<ul>
-		<span>{{ exercise.name }}</span>
-		<li> {{ exercise.}}</li>
-	</ul>
+<div data-ng-controller="exercisesController">
+
+	<label>Search: <input data-ng-model="searchText"></label>
+	<table>
+		<tr><th>Exercise </th><th>Description</th></tr>
+		<tr ng-repeat="item in exerciseList | filter:searchText"> {{ searchText }}
+
+			<td>{{ item }}</td>
+			<td>{{ $index }}</td>
+		</tr>
+	</table>
+
+
+	<hr>
+
 </div>

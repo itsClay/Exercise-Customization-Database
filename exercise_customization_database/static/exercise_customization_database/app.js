@@ -1,4 +1,4 @@
-var exerciseApp = angular.module('exerciseApp', ['ngRoute']);
+var exerciseApp = angular.module('exerciseApp', ['ngRoute',]);
 
 exerciseApp.config(function ($routeProvider, $httpProvider) { 
 	$httpProvider.defaults.xsrfCookieName = 'csrftoken';
@@ -16,7 +16,7 @@ exerciseApp.config(function ($routeProvider, $httpProvider) {
 		.when('/exercises', {
 			templateUrl: 'static/exercise_customization_database/js/views/exercises.html',
 			controller: 'exercisesController'
-		})
+		});
 
 });
 
