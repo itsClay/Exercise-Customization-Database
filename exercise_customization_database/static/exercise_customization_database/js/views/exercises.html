@@ -7,11 +7,11 @@
 	<label>Search: <input data-ng-model="searchText"></label>
 	<table>
 		<tr><th>Exercise </th><th>Description</th></tr>
-		<tr ng-repeat="item in exerciseList | filter:searchText"> {{ searchText }}
+		<tr ng-repeat="item in exerciseList | filter:searchText">
 
-			<td>{{ item }}</td>
-			<td>{{ $index }}</td>
+			<td>{{ item.name }} </td> <td>- {{ item.guide }}</td>
 		</tr>
+
 	</table>
 
 
