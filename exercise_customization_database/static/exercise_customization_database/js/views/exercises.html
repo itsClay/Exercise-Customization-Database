@@ -1,20 +1,31 @@
-<div class="panel panel-default">
+<div class="panel panel-primary">
 	<div class="panel-heading">Exercises</div>
 </div>
 
-<div data-ng-controller="exercisesController">
-
-	<label>Search: <input data-ng-model="searchText"></label>
-	<table>
+<div class="panel-body col-md-9 col-xs-9" data-ng-controller="exercisesController">
+	<h3>Search Exercise or Guide: <input data-ng-model="searchText"></h3>
+	
+	<table class="table">
 		<tr><th>Exercise </th><th>Description</th></tr>
-		<tr ng-repeat="item in exerciseList | filter:searchText">
-
-			<td>{{ item.name }} </td> <td>- {{ item.guide }}</td>
+		<tr class="exerciseQuery" ng-repeat="item in exerciseList | filter:searchText">
+			<td><span ng-click="addExerciseToWorkout()" class="glyphicon glyphicon-plus" aria-hidden="true"></span></td>
+			<td>{{ item.name }} </td> 
+			<td>- {{ item.guide | limitTo: 50 }}</td>
 		</tr>
 
 	</table>
+</div>
 
+<div class=" col-md-3 col-xs-3 blog-sidebar">
+	<div class="sidebar-module sidebar-module-inset">
+    	<h4>Current workout view</h4>
+    	<div class="sidebar-module">
+			<ul ng-repeat="view in currentWorkoutView">
+	    		<li>
+	    			{{ view }} <span ng-click="removeExerciseFromWorkout()" class="glyphicon glyphicon-minus"></span>
+	    		</li>
 
-	<hr>
-
+			</ul>	
+    	</div>
+    </div>
 </div>

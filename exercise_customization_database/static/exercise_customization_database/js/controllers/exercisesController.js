@@ -5,4 +5,17 @@ exerciseApp.controller('exercisesController', function ($scope, $http) {
             $scope.exerciseList = data.data;
 		    console.log($scope.exerciseList);
         });
+
+    $scope.currentWorkoutView = [
+    	{'name':'Pull-Up','guide':'do some pullups'}
+    ];
+
+    $scope.addExerciseToWorkout = function () {
+    	$scope.currentWorkoutView.push($scope.exerciseList);
+    };
+
+    $scope.removeExerciseFromWorkout = function() {
+    	$scope.currentWorkoutView.remove(exerciseList)
+    };
+
 });
