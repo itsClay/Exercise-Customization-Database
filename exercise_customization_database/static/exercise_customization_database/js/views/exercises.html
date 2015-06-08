@@ -6,23 +6,32 @@
 	<h3>Search Exercise or Guide: <input data-ng-model="searchText"></h3>
 	
 	<table class="table">
-		<tr><th>Exercise </th><th>Description</th></tr>
+		<tr><th></th><th>Exercise </th><th>Description</th></tr>
+
+		<!-- Exercise Row -->
 		<tr class="exerciseQuery" ng-repeat="item in exerciseList | filter:searchText">
-			<td><span ng-click="addExerciseToWorkout()" class="glyphicon glyphicon-plus" aria-hidden="true"></span></td>
+			<td><span 
+					ng-click="$log.debug($scope.exerciseList.name)" 
+					class="glyphicon glyphicon-plus" aria-hidden="true">
+				</span>
+			</td>
 			<td>{{ item.name }} </td> 
 			<td>- {{ item.guide | limitTo: 50 }}</td>
+			<td>{{ item.id }}</td>
 		</tr>
 
 	</table>
 </div>
 
-<div class=" col-md-3 col-xs-3 blog-sidebar">
+<div class=" col-md-3 col-xs-3 blog-sidebar" data-ng-controller="exercisesController">
 	<div class="sidebar-module sidebar-module-inset">
     	<h4>Current workout view</h4>
     	<div class="sidebar-module">
 			<ul ng-repeat="view in currentWorkoutView">
 	    		<li>
-	    			{{ view }} <span ng-click="removeExerciseFromWorkout()" class="glyphicon glyphicon-minus"></span>
+	    			{{ view.name }} 
+	    			<span ng-click="removeExerciseFromWorkout()" 
+	    			class="glyphicon glyphicon-minus"></span>
 	    		</li>
 
 			</ul>	
