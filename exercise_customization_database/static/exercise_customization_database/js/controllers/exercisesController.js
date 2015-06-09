@@ -1,6 +1,6 @@
 exerciseApp.controller('exercisesController', function ($scope, $http) {
 
-    $scope.exerciseList =
+     $scope.exerciseList =
     	$http.get('/api/exercises')
         .then(function(data) {
             $scope.exerciseList = data.data;
@@ -12,12 +12,14 @@ exerciseApp.controller('exercisesController', function ($scope, $http) {
     	{'name':'Push-Up','guide':'do some pushups'},    	
     ];
 
-    $scope.addExerciseToWorkout = function (clickEvent) {
-    	$scope.currentWorkoutView.push($scope.exerciseList);
+    $scope.addExerciseToWorkout = function (item) {
+        if (item    )
+    	$scope.currentWorkoutView.push(item);
+        //need to handle reapeats.
     };
 
-    $scope.removeExerciseFromWorkout = function() {
-    	$scope.currentWorkoutView.remove(this.element)
+    $scope.removeExerciseFromWorkout = function(view) {
+    	$scope.currentWorkoutView.splice(view, 1)
     };
 
 });

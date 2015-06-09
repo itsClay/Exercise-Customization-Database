@@ -1,40 +1,41 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">Exercises</div>
 </div>
+<div data-ng-controller="exercisesController">
+	<div class="panel-body col-md-9 col-xs-9" >
+		<h3>Search Exercise or Guide: <input data-ng-model="searchText"></h3>
+		
+		<table class="table">
+			<tr><th></th><th>Exercise </th><th>Description</th></tr>
 
-<div class="panel-body col-md-9 col-xs-9" data-ng-controller="exercisesController">
-	<h3>Search Exercise or Guide: <input data-ng-model="searchText"></h3>
-	
-	<table class="table">
-		<tr><th></th><th>Exercise </th><th>Description</th></tr>
+			<!-- Exercise Row -->
+			<tr class="exerciseQuery" ng-repeat="item in exerciseList | filter:searchText">
+				<td><span 
+						ng-click="addExerciseToWorkout(item)" 
+						class="glyphicon glyphicon-plus" aria-hidden="true">
+					</span>
+				</td>
+				<td>{{ item.name }} </td> 
+				<td>- {{ item.guide | limitTo: 50 }}</td>
+				<td>{{ item.id }}</td>
+			</tr>
 
-		<!-- Exercise Row -->
-		<tr class="exerciseQuery" ng-repeat="item in exerciseList | filter:searchText">
-			<td><span 
-					ng-click="$log.debug($scope.exerciseList.name)" 
-					class="glyphicon glyphicon-plus" aria-hidden="true">
-				</span>
-			</td>
-			<td>{{ item.name }} </td> 
-			<td>- {{ item.guide | limitTo: 50 }}</td>
-			<td>{{ item.id }}</td>
-		</tr>
+		</table>
+	</div>
 
-	</table>
-</div>
+	<div class=" col-md-3 col-xs-3 blog-sidebar">
+		<div class="sidebar-module sidebar-module-inset">
+	    	<h4>Current workout view</h4>
+	    	<div class="sidebar-module">
+				<ul ng-repeat="view in currentWorkoutView">
+		    		<li>
+		    			{{ view.name }} 
+		    			<span ng-click="removeExerciseFromWorkout(item)" 
+		    			class="glyphicon glyphicon-minus"></span>
+		    		</li>
 
-<div class=" col-md-3 col-xs-3 blog-sidebar" data-ng-controller="exercisesController">
-	<div class="sidebar-module sidebar-module-inset">
-    	<h4>Current workout view</h4>
-    	<div class="sidebar-module">
-			<ul ng-repeat="view in currentWorkoutView">
-	    		<li>
-	    			{{ view.name }} 
-	    			<span ng-click="removeExerciseFromWorkout()" 
-	    			class="glyphicon glyphicon-minus"></span>
-	    		</li>
-
-			</ul>	
-    	</div>
-    </div>
+				</ul>	
+	    	</div>
+	    </div>
+	</div>
 </div>
